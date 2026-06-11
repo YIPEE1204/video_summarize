@@ -1,0 +1,51 @@
+# =============================================
+# YouTube Video Summarizer — Global Configuration
+# =============================================
+# YAML format. Changes take effect on next skill invocation.
+
+# ------ Skill Metadata ------
+skill:
+  name: "video-summarizer"
+  version: "1.0.0-rc"
+  description: "YouTube video summarizer skill (subtitles + ASR + chunking + visual enhancement)"
+
+# ------ YouTube Settings ------
+youtube:
+  # Subtitle language priority (tried in order)
+  default_languages:
+    - zh-Hans
+    - zh
+    - en
+
+# ------ Output Settings ------
+output:
+  # Directory for saved transcripts (--keep flag)
+  directory: "output"
+
+# ------ Text Chunking (V0.3) ------
+chunker:
+  # Max tokens per chunk — exceeding this triggers auto-split
+  # Claude has 200k context; leave room for conversation
+  # Recommended range: 20000 ~ 80000
+  max_tokens_per_chunk: 40000
+
+# ------ Speech Recognition (V0.2) ------
+whisper:
+  # Model size: tiny (150MB) / base (300MB) / small (500MB) / medium (1.5GB) / large-v3 (3GB)
+  # Chinese content: small or larger recommended
+  model_size: "base"
+  # Device: cpu / cuda
+  device: "cpu"
+  # Compute type: CPU → "int8", CUDA → "float16"
+  compute_type: "int8"
+  # Target language (null = auto-detect; specifying improves accuracy)
+  language: null
+
+# ------ Multimodal Visual Analysis (V0.4) ------
+gemini:
+  # Gemini API key (user must provide their own)
+  api_key: ""
+  # Model name
+  model: "Gemini 3.1 Flash Lite"
+  # Max frames to send per analysis
+  max_frames: 10

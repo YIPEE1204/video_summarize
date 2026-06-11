@@ -1,6 +1,4 @@
-[README.md](https://github.com/user-attachments/files/28824612/README.md)
-# video_summarize
-A video summarization skill for Claude code
+# YouTube Video Summarizer
 
 Summarize YouTube videos with Claude Code — automatically extracts subtitles or transcribes audio, with optional keyframe analysis for richer understanding.
 
